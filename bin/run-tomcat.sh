@@ -1,12 +1,18 @@
 #!/bin/bash
 
-DEB_MANTA_URL=https://us-east.manta.joyent.com/justin.reagor/public/helloworld/helloworld_${VERSION}_all.deb
+set -o errexit
+set -o xtrace
+set -o pipefail
 
 VERSION=1.0
 
-curl -o /tmp/helloworld_${VERSION}_all.deb ${DEB_MANTA_URL}
+PACKAGE=helloworld_${VERSION}_all.deb
 
-dpkg --install
+DEB_MANTA_URL=https://us-east.manta.joyent.com/justin.reagor/public/helloworld/${PACKAGE}
+
+curl -o /tmp/${PACKAGE} ${DEB_MANTA_URL}
+
+dpkg --install ${PACKAGE}
 
 /usr/lib/jvm/default-java/bin/java \
   -Djava.util.logging.config.file=/var/lib/tomcat8/conf/logging.properties \
