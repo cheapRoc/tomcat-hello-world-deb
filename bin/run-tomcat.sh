@@ -12,7 +12,7 @@ DEB_MANTA_URL=https://us-east.manta.joyent.com/justin.reagor/public/helloworld/$
 
 curl -o /tmp/${PACKAGE} ${DEB_MANTA_URL}
 
-dpkg --install ${PACKAGE}
+dpkg --install /tmp/${PACKAGE}
 
 /usr/lib/jvm/default-java/bin/java \
   -Djava.util.logging.config.file=/var/lib/tomcat8/conf/logging.properties \
