@@ -18,7 +18,6 @@ job "example" {
 
       config {
         command = "/usr/local/sbin/run-tomcat.sh"
-        # args    = ["-flag", "1"]
       }
 
       env {

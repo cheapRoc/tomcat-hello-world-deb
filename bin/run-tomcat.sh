@@ -4,8 +4,6 @@ set -o errexit
 set -o xtrace
 set -o pipefail
 
-VERSION=1.0
-
 PACKAGE=helloworld_${VERSION}_all.deb
 
 DEB_MANTA_URL=https://us-east.manta.joyent.com/justin.reagor/public/helloworld/${PACKAGE}
@@ -25,4 +23,4 @@ dpkg --install /tmp/${PACKAGE}
   -Dcatalina.base=/var/lib/tomcat8 \
   -Dcatalina.home=/usr/share/tomcat8 \
   -Djava.io.tmpdir=/tmp/tomcat8-tomcat8-tmp \
-  org.apache.catalina.startup.Bootstrap start
+  org.apache.catalina.startup.Bootstrap run
